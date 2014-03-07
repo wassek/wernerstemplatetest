@@ -8,7 +8,9 @@
                          j:title="wernertemplateset"
                          jcr:mixinTypes="jmix:hasExternalProviderExtension"
                          jcr:primaryType="jnt:module">
-                
+                <portlets jcr:primaryType="jnt:portletFolder"/>
+                <files jcr:primaryType="jnt:folder"/>
+                <contents jcr:primaryType="jnt:contentFolder"/>
             <templates jcr:primaryType="jnt:templatesFolder">
                 <files jcr:primaryType="jnt:folder">
                     <themes jcr:primaryType="jnt:folder">
@@ -52,7 +54,171 @@
                                 <just-before-footer-area j:allowedTypes="" jcr:primaryType="jnt:area"/>
                             </justBeforeFooter-col1>
                         </home>
-                </base>
+                        <events jcr:primaryType="jnt:pageTemplate">
+                            <pagecontent jcr:primaryType="jnt:contentList">
+                                <row1 column="2col106" jcr:primaryType="jnt:row"/>
+                            </pagecontent>
+                            <row1-col1 jcr:primaryType="jnt:contentList">
+                                <pageTitle jcr:primaryType="jnt:pageTitle"/>
+                                <breadcrumb displayCurrentPage="true"
+                                 displayHome="true"
+                                 displayLinkOnCurrentPage="false"
+                                 jcr:primaryType="jnt:pageBreadcrumb"/>
+                                <listA jcr:primaryType="jnt:area"/>
+                                <events j:allowedTypes="jnt:event"
+                             j:canDeleteInContribution="true"
+                             j:canOrderInContribution="true"
+                             j:contributeTypes="jnt:event"
+                             j:editableInContribution="true"
+                             jcr:mixinTypes="jmix:contributeMode"
+                             jcr:primaryType="jnt:area"/>
+                            </row1-col1>
+                            <row1-col2 j:skin="skins.acmebox2"
+                             jcr:mixinTypes="jmix:acmestyle jmix:skinnable"
+                             jcr:primaryType="jnt:contentList">
+                                <side-menu j:baselineNode="home"
+                                j:channelIncludeOrExclude="exclude"
+                                j:channelSelection="apple_ipad_ver1 generic_mobile"
+                                j:maxDepth="3"
+                                j:startLevel="1"
+                                j:styleName="navigationN2"
+                                jcr:mixinTypes="jmix:channelSelection"
+                                jcr:primaryType="jnt:navMenu"/>
+                                <calendar endDateProperty="endDate"
+                               j:bindedComponent="/modules/wernertemplateset/templates/base/events/row1-col1/events"
+                               jcr:primaryType="jnt:calendar"
+                               startDateProperty="startDate"/>
+                                <facets j:bindedComponent="/modules/wernertemplateset/templates/base/events/row1-col1/events"
+                             j:type="jnt:event"
+                             jcr:primaryType="jnt:facets">
+                                    <fieldFacet facet="type"
+                                    field="jnt:event;eventsType"
+                                    jcr:primaryType="jnt:fieldFacet"
+                                    limit="100"
+                                    mincount="1"
+                                    missing="false"
+                                    offset="0">
+                                        <j:translation_en jcr:language="en" jcr:primaryType="jnt:translation" label="Type"/>
+                                        <j:translation_fr jcr:language="fr" jcr:primaryType="jnt:translation" label="Type"/>
+                                    </fieldFacet>
+                                    <field-hierarchical-facet facet="Categories"
+                                                  field="jmix:categorized;j:defaultCategory"
+                                                  jcr:primaryType="jnt:fieldHierarchicalFacet"
+                                                  limit="100"
+                                                  mincount="1"
+                                                  missing="false"
+                                                  offset="0"
+                                                  prefix="/sites/systemsite/categories">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Categories"/>
+                                        <j:translation_fr jcr:language="fr"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Catégories"/>
+                                    </field-hierarchical-facet>
+                                    <queryFacet facet="nextEvents"
+                                    jcr:primaryType="jnt:queryFacet"
+                                    mincount="1"
+                                    query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Next events per month"
+                                             valueLabel="##DynamicDateLabel(NOW/MONTH,date,MMMM)##"/>
+                                        <j:translation_fr jcr:language="fr"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Prochains évènements par mois"
+                                             valueLabel="##DynamicDateLabel(NOW/MONTH,date,MMMM)##"/>
+                                    </queryFacet>
+                                    <queryFacet-1 facet="nextEvents"
+                                      jcr:primaryType="jnt:queryFacet"
+                                      mincount="1"
+                                      query="0\:FACET\:startDate:[NOW/MONTH+1MONTH TO NOW/MONTH+2MONTH] OR 0\:FACET\:endDate:[NOW/MONTH+1MONTH TO NOW/MONTH+2MONTH]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Next events per month"
+                                             valueLabel="##DynamicDateLabel(NOW/MONTH+1MONTH,date,MMMM)##"/>
+                                        <j:translation_fr jcr:language="fr"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Prochains évènements par mois"
+                                             valueLabel="##DynamicDateLabel(NOW/MONTH+1MONTH,date,MMMM)##"/>
+                                    </queryFacet-1>
+                                    <queryFacet-2 facet="nextEvents"
+                                      jcr:primaryType="jnt:queryFacet"
+                                      mincount="1"
+                                      query="0\:FACET\:startDate:[NOW/MONTH+2MONTH TO NOW/MONTH+3MONTH] OR 0\:FACET\:endDate:[NOW/MONTH+2MONTH TO NOW/MONTH+3MONTH]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Next events per month"
+                                             valueLabel="##DynamicDateLabel(NOW/MONTH+2MONTH,date,MMMM)##"/>
+                                        <j:translation_fr jcr:language="fr"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Prochains évènements par mois"
+                                             valueLabel="##DynamicDateLabel(NOW/MONTH+2MONTH,date,MMMM)##"/>
+                                    </queryFacet-2>
+                                    <queryFacet-3 facet="nextEvents"
+                                      jcr:primaryType="jnt:queryFacet"
+                                      mincount="1"
+                                      query="0\:FACET\:startDate:[NOW/MONTH+3MONTH TO NOW/MONTH+4MONTH] OR 0\:FACET\:endDate:[NOW/MONTH+3MONTH TO NOW/MONTH+4MONTH]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Next events per month"
+                                             valueLabel="##DynamicDateLabel(NOW/MONTH+3MONTH,date,MMMM)##"/>
+                                        <j:translation_fr jcr:language="fr"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Prochains évènements par mois"
+                                             valueLabel="##DynamicDateLabel(NOW/MONTH+3MONTH,date,MMMM)##"/>
+                                    </queryFacet-3>
+                                </facets>
+                                <event-right-column-content j:allowedTypes="" jcr:primaryType="jnt:area"/>
+                            </row1-col2>
+                            <illustration jcr:primaryType="jnt:contentList">
+                                <illustration j:allowedTypes="jnt:imageReference"
+                                   j:level="1"
+                                   jcr:primaryType="jnt:absoluteArea"/>
+                            </illustration>
+                        </events>
+                                <pagecontent jcr:primaryType="jnt:contentList">
+                                <pagecontent jcr:primaryType="jnt:contentList">
+                                <content-list-1 j:id="page-header"
+                                     j:skin="skins.custom"
+                                     jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                     jcr:primaryType="jnt:contentList">
+                                    <content-list j:id="page-header-img"
+                                      j:skin="skins.custom"
+                                      jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                      jcr:primaryType="jnt:contentList">
+                                        <header colNames="header-col1,header-col2"
+                                   customColumn="5,11"
+                                   divID="header"
+                                   jcr:primaryType="jnt:customRow"/>
+                                        <headerBottom colNames="leftheaderBottom-left,leftheaderBottom-center,leftheaderBottom-right"
+                                         customColumn="3,11,2"
+                                         divID="headerBottom"
+                                         jcr:primaryType="jnt:customRow"/>
+                                        <illustration colNames="illustration-colContent"
+                                         customColumn="16"
+                                         divID="illustration"
+                                         jcr:primaryType="jnt:customRow"/>
+                                    </content-list>
+                                </content-list-1>
+                                <content-1 j:id="content"
+                                j:skin="skins.custom"
+                                jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                jcr:primaryType="jnt:contentList">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:mixinTypes="mix:title"
+                                          jcr:primaryType="jnt:translation"
+                                          jcr:title="content"/>
+                                    <pagecontent j:allowedTypes="" jcr:primaryType="jnt:area"/>
+                                </content-1>
+                                <footerTop colNames="footerTop-col1,footerTop-col2,footerTop-col3,footerTop-col4,,footerTop-col5"
+                                customColumn="3,6,4,3,16"
+                                divClass=" noprint"
+                                divID="footerTop"
+                                jcr:primaryType="jnt:customRow"/>
+                            </pagecontent>
+                            </pagecontent>
+                    </base>
                     <content-template j:applyOn="jnt:content"
                               j:hiddenTemplate="true"
                               j:priority="1"
@@ -64,16 +230,24 @@
                 </content-template>
             </templates>
                 
-                <portlets jcr:primaryType="jnt:portletFolder"/>
-                <files jcr:primaryType="jnt:folder"/>
-                <contents jcr:primaryType="jnt:contentFolder"/>
-                <home j:isHomePage="true"
+                
+                <home changefreq="monthly"
+               j:isHomePage="true"
                j:templateName="home"
-               jcr:primaryType="jnt:page">
+               jcr:mixinTypes="jmix:sitemap"
+               jcr:primaryType="jnt:page"
+               priority="0.5">
                     <j:translation_en jcr:language="en"
                               jcr:mixinTypes="mix:title"
                               jcr:primaryType="jnt:translation"
                               jcr:title="Home"/>
+                    <header-col1 jcr:primaryType="jnt:contentList">
+                        <header-left j:allowedTypes="" jcr:primaryType="jnt:absoluteArea"/>
+                    </header-col1>
+                    <header-col2 jcr:primaryType="jnt:contentList">
+                        <header-right j:allowedTypes="" jcr:primaryType="jnt:absoluteArea"/>
+                    </header-col2>
+                    <header-left jcr:primaryType="jnt:contentList"/>
                 </home>
         </wernertemplateset>
     </modules>

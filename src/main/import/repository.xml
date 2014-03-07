@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
+    <modules jcr:primaryType="jnt:modules">
+        <wernertemplateset j:dependencies="default"
+                         j:installedModules="wernertemplateset"
+                         j:modulePriority="0"
+                         j:moduleType="templatesSet"
+                         j:title="wernertemplateset"
+                         jcr:primaryType="jnt:module">
+            <portlets jcr:primaryType="jnt:portletFolder"/>
+            <files jcr:primaryType="jnt:folder"/>
+            <contents jcr:primaryType="jnt:contentFolder"/>
+            <templates jcr:primaryType="jnt:templatesFolder">
+                <files jcr:primaryType="jnt:folder">
+                    <themes jcr:primaryType="jnt:folder">
+                            <default jcr:primaryType="jnt:folder"/>
+                    </themes>
+                </files>
+                <contents jcr:primaryType="jnt:contentFolder"/>
+                    <base j:theme="/modules/wernertemplateset/templates/files/themes/default"
+                  j:view="wernertemplateset"
+                  jcr:mixinTypes="jmix:theme"
+                  jcr:primaryType="jnt:template">
+                    <simple jcr:primaryType="jnt:pageTemplate"/>
+                        <home jcr:primaryType="jnt:pageTemplate">
+                            <pagecontent jcr:primaryType="jnt:contentList">
+                                <custom-rows-960gs colNames="teaserZone"
+                                        customColumn="16"
+                                        jcr:primaryType="jnt:customRow"/>
+                                <content colNames="content-col1,content-col2"
+                              customColumn="10,6 "
+                              jcr:primaryType="jnt:customRow"/>
+                                <justBeforeFooter customColumn="16" jcr:primaryType="jnt:customRow"/>
+                            </pagecontent>
+                            <content-col2 jcr:primaryType="jnt:contentList">
+                                <aside j:allowedTypes="" jcr:primaryType="jnt:area"/>
+                            </content-col2>
+                            <content-col1 jcr:primaryType="jnt:contentList">
+                                <maincontent j:allowedTypes="" jcr:primaryType="jnt:area"/>
+                            </content-col1>
+                            <illustration j:channelIncludeOrExclude="exclude"
+                                j:channelSelection="apple_ipad_ver1 generic_mobile"
+                                jcr:mixinTypes="jmix:channelSelection"
+                                jcr:primaryType="jnt:contentList">
+                                <illustration j:allowedTypes="jnt:banner"
+                                   j:areaView="easySlider-content"
+                                   jcr:primaryType="jnt:area"/>
+                            </illustration>
+                            <teaserZone jcr:primaryType="jnt:contentList">
+                                <area91323 j:allowedTypes="" jcr:primaryType="jnt:area"/>
+                            </teaserZone>
+                            <justBeforeFooter-col1 jcr:primaryType="jnt:contentList">
+                                <just-before-footer-area j:allowedTypes="" jcr:primaryType="jnt:area"/>
+                            </justBeforeFooter-col1>
+                        </home>
+                </base>
+                    <content-template j:applyOn="jnt:content"
+                              j:hiddenTemplate="true"
+                              j:priority="1"
+                              j:view="wernertemplateset"
+                              jcr:primaryType="jnt:contentTemplate">
+                    <pagecontent jcr:primaryType="jnt:contentList">
+                            <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
+                    </pagecontent>
+                </content-template>
+            </templates>
+                
+                
+                <home j:isHomePage="true"
+               j:templateName="home"
+               jcr:primaryType="jnt:page">
+                    <j:translation_en jcr:language="en"
+                              jcr:mixinTypes="mix:title"
+                              jcr:primaryType="jnt:translation"
+                              jcr:title="Home"/>
+                </home>
+        </wernertemplateset>
+    </modules>
+</content>

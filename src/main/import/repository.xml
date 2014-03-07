@@ -6,10 +6,9 @@
                          j:modulePriority="0"
                          j:moduleType="templatesSet"
                          j:title="wernertemplateset"
+                         jcr:mixinTypes="jmix:hasExternalProviderExtension"
                          jcr:primaryType="jnt:module">
-            <portlets jcr:primaryType="jnt:portletFolder"/>
-            <files jcr:primaryType="jnt:folder"/>
-            <contents jcr:primaryType="jnt:contentFolder"/>
+                
             <templates jcr:primaryType="jnt:templatesFolder">
                 <files jcr:primaryType="jnt:folder">
                     <themes jcr:primaryType="jnt:folder">
@@ -65,7 +64,9 @@
                 </content-template>
             </templates>
                 
-                
+                <portlets jcr:primaryType="jnt:portletFolder"/>
+                <files jcr:primaryType="jnt:folder"/>
+                <contents jcr:primaryType="jnt:contentFolder"/>
                 <home j:isHomePage="true"
                j:templateName="home"
                jcr:primaryType="jnt:page">
